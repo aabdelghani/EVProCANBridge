@@ -4,19 +4,20 @@ The EVProCANBridge offers a cutting-edge solution designed to enhance the integr
 
 ## Key Features
 
-- **Dual CAN Interface**: Features two isolated CAN channels that facilitate seamless communication between the BMS and motor control units.
-  
-- **Real-Time Data Processing**: Guarantees efficient handling of CAN messages, enabling responsive control over vehicle operations.
 
-- **Data Logging & Diagnostics**: Captures and logs essential data such as voltage, temperature, and errors, providing valuable insights for diagnostics and troubleshooting.
+- **Dual CAN Interface**: Seamlessly integrates BMS (Battery Management System) and motor control functionalities, enabling efficient communication between these critical components.
 
-- **Universal BMS Compatibility**: Designed for versatility, it supports various BMS protocols, ensuring compatibility with a wide range of EV systems.
+- **Real-Time Data Processing**: Employs advanced algorithms for immediate processing of CAN messages, ensuring timely responses and adjustments for optimal vehicle control.
 
-- **Relay Control Module**: Enhances system automation by allowing actions to be automated based on CAN messages or external inputs.
+- **Comprehensive Data Logging**: Automatically captures and stores vital parameters such as voltage, temperature, and system errors, facilitating thorough diagnostics and maintenance.
 
-- **Enhanced Safety Features**: Incorporates critical safety features including parking brake control, a brake pedal requirement for drive mode, and a charging safety interlock to ensure the vehicle's integrity.
+- **Universal BMS Compatibility**: Designed with flexibility in mind, it supports a wide range of BMS protocols, making it adaptable to various EV models and systems.
 
-- **Cloud Monitoring**: Facilitates remote monitoring and management through a cloud platform, offering real-time insights and data accessibility.
+- **Relay Control Module**: Introduces a layer of automation by executing predefined actions based on specific CAN messages or external signals, streamlining system operations.
+
+- **Enhanced Safety Features**: Incorporates essential safety mechanisms including parking brake engagement, brake pedal verification for drive readiness, and a charging safety interlock to ensure EV security.
+
+- **Simple Fleet Management Monitoring**: Offers straightforward solutions for fleet operators to monitor vehicle status, performance metrics, and maintenance needs, simplifying fleet management tasks.
 
 ## Getting Started
 
@@ -24,7 +25,59 @@ This section will guide you through the setup process and how to start using EVP
 
 ### Prerequisites
 
-List of software, libraries, and hardware requirements.
+- A list of necessary hardware, software, and other tools required to use EVProCANBridge.
+
+#### Built-in RTC Usage
+
+The latest 2-Channel CAN FD Master Hat for RPi also includes an on-board RTC. To install the RTC drivers on your Raspberry Pi, follow these steps:
+
+1. **Update Raspberry Pi and Reboot**:
+    ```bash
+    sudo apt update
+    sudo apt upgrade
+    sudo reboot
+    ```
+
+2. **Install Dependencies**:
+    ```bash
+    sudo apt install i2c-tools build-essential raspberrypi-kernel-headers
+    ```
+
+3. **Download the Driver**:
+    ```bash
+    curl -O -L https://github.com/dresden-elektronik/raspbee2-rtc/archive/master.zip
+    unzip master.zip
+    ```
+
+4. **Compile the RTC Kernel Module**:
+    ```bash
+    cd raspbee2-rtc-master
+    make
+    ```
+
+5. **Install the RTC Kernel Module**:
+    ```bash
+    sudo make install
+    sudo reboot
+    ```
+
+6. **Configure System Time to the RTC Module**:
+    ```bash
+    sudo hwclock --systohc
+    ```
+
+7. **Test the RTC**:
+    ```bash
+    sudo hwclock --verbose
+    ```
+
+    Now you can read the RTC time using the following command:
+    ```bash
+    sudo hwclock -r
+    ```
+
+    **Note**: Ensure you have a battery installed on the RTC module for it to function correctly.
+
 
 ### Installation
 
