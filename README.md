@@ -27,7 +27,7 @@ This section will guide you through the setup process and how to start using EVP
 
 
 - A Raspberry Pi 4 Model B Rev 1.5v.
-- Necessary hardware, software, and other tools listed in the subsequent sections.
+- 2-Channel CAN-BUS(FD) Shield for Raspberry Pi (MCP2518FD)
 
 **Important Configuration Note**: To ensure compatibility and optimal performance, you must configure your Raspberry Pi to run in 32-bit mode. This can be done by adding the line `arm_64bit=0` to the `/boot/config.txt` file on your Raspberry Pi. After adding this line, please restart your Raspberry Pi to apply the changes. This step is crucial for the proper functioning of the EVProCANBridge on the Raspberry Pi 4 Model B Rev 1.5v.
 
