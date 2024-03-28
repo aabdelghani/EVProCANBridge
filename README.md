@@ -2,6 +2,14 @@
 
 The EVProCANBridge offers a cutting-edge solution designed to enhance the integration and communication between various components of electric vehicles (EVs). This tool bridges the gap between Battery Management Systems (BMS) and motor control units through dual isolated CAN channels, ensuring reliable and efficient vehicle operation.
 
+## MVP Documentation
+
+For detailed information on the development process, achievements, and technical approach of each MVP phase, please refer to our MVP documentation:
+
+- [MVP Documentation](docs/MVP_DOC.md)
+
+This document includes comprehensive details on the objectives, achievements, technical details, and references for each milestone of the project.
+
 ## References
 
 - [2-Channel CAN-BUS FD Shield for Raspberry Pi - Seeed Studio Wiki](https://wiki.seeedstudio.com/2-Channel-CAN-BUS-FD-Shield-for-Raspberry-Pi/)
