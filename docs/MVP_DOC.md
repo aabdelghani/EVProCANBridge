@@ -1,4 +1,44 @@
 # MVP Documentation
+# MVP 2: Sending and Receiving CAN Messages with Physical Feedback
+### Release Date
+March 28, 2024
+
+## Overview
+Building on the success of the initial MVP, which established reliable CAN communication on a Raspberry Pi, the next milestone (MVP2) aims to demonstrate a practical application of CAN bus communication by creating and transmitting a specific CAN message from one interface and receiving it on another. Upon successful reception, a connected LED will be illuminated as a physical indicator of success.
+
+## Objectives
+- Create a specific CAN message to be sent over the CAN bus.
+- Transmit the message from CAN0 interface.
+- Receive the message using the CAN1 interface.
+- Use the reception of the message as a trigger to turn on an LED, providing a visual indication of successful communication.
+
+## Technical Approach
+1. **Message Creation**: Define a unique CAN message with a specific arbitration ID and data payload.
+2. **Transmission**: Use the configured `can0` interface to send the created message into the CAN network.
+3. **Reception**: Continuously monitor the `can1` interface for incoming messages. When the specific message is detected, trigger a GPIO pin on the Raspberry Pi to turn on an LED.
+4. **Feedback**: Implement a simple feedback mechanism to visually indicate the success of the message transmission and reception process.
+
+### References
+Pending
+
+### Customer Feedback
+Pending
+
+### Action Items
+- [ ] **Define the CAN Message**: Specify the arbitration ID and data payload for the CAN message that will be used to trigger the LED.
+- [ ] **Develop Transmission Code**: Write and test the code that will send the specified CAN message over the `can0` interface.
+- [ ] **Develop Reception Code**: Implement the code that monitors incoming messages on the `can1` interface, looking specifically for the defined CAN message.
+- [ ] **Hardware Setup**: Connect an LED to the appropriate GPIO pin on the Raspberry Pi, ensuring it can be controlled programmatically.
+- [ ] **Implement LED Control Logic**: Integrate the LED control logic into the reception code, so the LED turns on when the specified CAN message is received.
+- [ ] **Testing**: Perform comprehensive testing to ensure:
+    - The CAN message is correctly formatted and sent over `can0`.
+    - The message is accurately received by `can1` without errors.
+    - The LED correctly responds to the reception of the message.
+- [ ] **Documentation**: Update the project documentation to include:
+    - Technical details of the CAN message used.
+    - Descriptions of the transmission and reception code.
+    - Wiring instructions for connecting the LED to the Raspberry Pi.
+    - A troubleshooting guide covering common issues and their resolutions.
 
 ## MVP 1: Running CAN Bus Communication Alongside Wireshark on Raspberry Pi
 
