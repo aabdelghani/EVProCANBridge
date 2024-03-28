@@ -18,6 +18,49 @@ Building on the success of the initial MVP, which established reliable CAN commu
 3. **Reception**: Continuously monitor the `can1` interface for incoming messages. When the specific message is detected, trigger a GPIO pin on the Raspberry Pi to turn on an LED.
 4. **Feedback**: Implement a simple feedback mechanism to visually indicate the success of the message transmission and reception process.
 
+## How to Run the Scripts for MVP2
+
+### Prerequisites
+Before running the scripts, ensure you have the following prerequisites installed on your Raspberry Pi:
+- Python 3.x
+- `python-can` library
+- `RPi.GPIO` library (for the receiving script)
+
+You can install the required Python libraries using pip:
+```sh
+pip3 install python-can RPi.GPIO
+```
+
+### Sending a CAN Message (`send_can_message_v1.py`)[send_can_message_v1.py](https://github.com/aabdelghani/EVProCANBridge/blob/main/send_can_message_v1.py) 
+1. **Prepare the Script**: Make sure the `send_can_message.py` script is saved on your Raspberry Pi.
+2. **Run the Script**: Open a terminal and navigate to the directory containing the script. Execute the script by running:
+   ```sh
+   python3 send_can_message.py
+   ```
+   This will send a predefined CAN message over the `can0` interface.
+
+### Receiving CAN Messages and Toggling an LED [receive_can_message_v1.py](https://github.com/aabdelghani/EVProCANBridge/blob/main/recieve_can_messsage_v1.py)
+1. **Hardware Setup**: Connect an LED to the designated GPIO pin on your Raspberry Pi. For the purposes of the script, we're using GPIO pin 17.
+2. **Prepare the Script**: Ensure the `receive_can_message.py` script is saved on your Raspberry Pi, and it's configured to listen on the `can1` interface and to toggle the connected LED.
+3. **Run the Script**: Open a new terminal window and navigate to the directory containing the `receive_can_message.py` script. Execute the script by running:
+   ```sh
+   python3 recieve_can_messsage_v1.py
+   ```
+   The script will listen for the specific CAN message. When the message is received, it will toggle the state of the LED.
+
+### Note
+- These scripts require administrative privileges to access the CAN interfaces and GPIO pins. If you encounter permission issues, prepend `sudo` to the Python command:
+  ```sh
+  sudo python3 send_can_message_v1.py
+  ```
+  ```sh
+  sudo python3 receive_can_message.py
+  ```
+
+- To stop the scripts, especially the receiving script which runs in a loop, press `Ctrl+C` in the terminal.
+
+This setup allows you to demonstrate the interaction between sending and receiving CAN messages and performing a physical action (toggling an LED) in response, illustrating the capabilities of your system in real-time.
+
 ### References
 Pending
 
@@ -25,9 +68,9 @@ Pending
 Pending
 
 ### Action Items
-- [ ] **Define the CAN Message**: Specify the arbitration ID and data payload for the CAN message that will be used to trigger the LED.
-- [ ] **Develop Transmission Code**: Write and test the code that will send the specified CAN message over the `can0` interface.
-- [ ] **Develop Reception Code**: Implement the code that monitors incoming messages on the `can1` interface, looking specifically for the defined CAN message.
+- [x] **Define the CAN Message**: Specify the arbitration ID and data payload for the CAN message that will be used to trigger the LED.
+- [x] **Develop Transmission Code**: Write and test the code that will send the specified CAN message over the `can0` interface.
+- [x] **Develop Reception Code**: Implement the code that monitors incoming messages on the `can1` interface, looking specifically for the defined CAN message.
 - [ ] **Hardware Setup**: Connect an LED to the appropriate GPIO pin on the Raspberry Pi, ensuring it can be controlled programmatically.
 - [ ] **Implement LED Control Logic**: Integrate the LED control logic into the reception code, so the LED turns on when the specified CAN message is received.
 - [ ] **Testing**: Perform comprehensive testing to ensure:
