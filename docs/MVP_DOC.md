@@ -96,6 +96,6 @@ This configuration ensures that the `can0` interface is optimized for performanc
 Pending
 
 ### Action Items
-- [-] Gather customer feedback on the current MVP functionality and usability.
-- [-] Explore additional CAN bus analysis tools that can be integrated with the Raspberry Pi.
+- [x] Gather customer feedback on the current MVP functionality and usability.
+- [x] Explore additional CAN bus analysis tools that can be integrated with the Raspberry Pi.
 - [ ] Consider developing a more user-friendly interface for setting up CAN bus communication and monitoring.
