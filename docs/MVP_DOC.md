@@ -18,6 +18,11 @@ Building on the success of the initial MVP, which established reliable CAN commu
 3. **Reception**: Continuously monitor the `can1` interface for incoming messages. When the specific message is detected, trigger a GPIO pin on the Raspberry Pi to turn on an LED.
 4. **Feedback**: Implement a simple feedback mechanism to visually indicate the success of the message transmission and reception process.
 
+## Script Functionality
+
+The scripts developed as part of our project have specific functionalities tied to the Raspberry Pi's GPIO pins, particularly GPIO pin 17. One of the key scripts toggles the state of GPIO pin 17 to demonstrate physical interaction with the hardware. This is used as an indication of successful CAN message reception.
+
+
 ## How to Run the Scripts for MVP2
 
 ### Prerequisites
@@ -25,6 +30,11 @@ Before running the scripts, ensure you have the following prerequisites installe
 - Python 3.x
 - `python-can` library
 - `RPi.GPIO` library (for the receiving script)
+- Connecting LED to GPIO 17 
+
+![GPIO Pin 17 Toggle](images/RaspberryPiPin17.jpg)
+
+*Figure: Visual representation of GPIO pin 17 being toggled by the script.*
 
 You can install the required Python libraries using pip:
 ```sh
