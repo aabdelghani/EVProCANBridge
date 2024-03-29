@@ -42,10 +42,10 @@ pip3 install python-can RPi.GPIO
 ```
 
 ### Sending a CAN Message [send_can_message_v1.py](https://github.com/aabdelghani/EVProCANBridge/blob/main/send_can_message_v1.py) 
-1. **Prepare the Script**: Make sure the `send_can_message.py` script is saved on your Raspberry Pi.
+1. **Prepare the Script**: Make sure the [send_can_message_v1.py](https://github.com/aabdelghani/EVProCANBridge/blob/main/send_can_message_v1.py) script is saved on your Raspberry Pi.
 2. **Run the Script**: Open a terminal and navigate to the directory containing the script. Execute the script by running:
    ```sh
-   python3 send_can_message.py
+   python3 send_can_message_v1.py
    ```
    This will send a predefined CAN message over the `can0` interface.
 
