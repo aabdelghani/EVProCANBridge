@@ -1,0 +1,6 @@
+{
+  "can_interface": "can0",
+  "arbitration_id": 291,
+  "data_payload": [0, 1, 2, 3, 4, 5, 6, 7],
+  "is_extended_id": false
+}

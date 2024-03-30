@@ -1,0 +1,17 @@
+{
+  "can_id_hex": "0X2F0A202",
+  "message_details": {
+    "start_bit": 15,
+    "bit_length": 8,
+    "scaling": 1,
+    "offset": 0,
+    "type": "Unsigned",
+    "units": "%"
+  },
+  "baud_rate": 500000,
+  "can_channel": "can0",
+  "battery_percentage_range": {
+    "start": 0,
+    "end": 100
+  }
+}
