@@ -1,4 +1,53 @@
 # MVP Documentation
+
+## MVP 3: State of Charge (SOC) Broadcasting over CAN Bus
+
+### Release Date
+March 30, 2024
+
+### Objectives
+- Implement SOC broadcasting over the CAN bus using a Python script.
+- Allow dynamic configuration of CAN message parameters through an external JSON file.
+- Demonstrate cycling SOC values from 0% to 100% and broadcasting these over CAN.
+
+### Achievements
+- **Dynamic Configuration:** Introduced a JSON-based configuration system allowing for easy adjustment of CAN parameters (ID, bitrate, SOC range) without modifying the script code.
+- **SOC Broadcasting Script:** Developed and successfully tested a Python script (`BatterySOC_CAN_Publisher.py`) that cycles through SOC values from 0% to 100%, broadcasting each value over the CAN bus.
+- **Graceful Shutdown:** Enhanced the script with a mechanism for graceful shutdown upon receiving a keyboard interrupt (CTRL+C), ensuring clean script termination.
+
+### Technical Details and References
+- The SOC values are encoded and sent using a specific CAN message structure, dictated by the `config/BatterySOC_CAN_Publisher.json` configuration file. This includes the start bit, bit length, scaling, and CAN ID in HEX format.
+- Utilized the `python-can` library for CAN interface interaction, demonstrating a programmable method for sending CAN messages based on dynamic SOC values.
+- Script execution and interruption are handled cleanly, providing feedback to the user upon shutdown.
+
+### Configuration File Breakdown
+The configuration file (`BatterySOC_CAN_Publisher.json`) includes several key parameters:
+- `can_id_hex`: The CAN ID in hexadecimal format.
+- `message_details`: Object specifying message encoding details such as start bit, bit length, scaling, and offset.
+- `baud_rate`: The baud rate for CAN communication.
+- `can_channel`: Specifies the CAN interface channel (e.g., `can0`).
+- `battery_percentage_range`: Defines the range for cycling SOC values.
+
+### Script Usage
+To run the script, navigate to the script's directory and execute:
+```bash
+python3 BatterySOC_CAN_Publisher.py
+```
+Ensure the CAN interface is correctly set up on your Raspberry Pi and the `python-can` library is installed.
+
+### References
+- [Python-CAN Documentation](https://python-can.readthedocs.io/en/stable/)
+- [2-1/16" EV Battery Level / SOC Gauge 0-100% (w/ warning) (AEM)](https://speedhut.com/gauge-applications/2-1-16-ev-battery-level-soc-gauge-0-100-w-warning-aem/?dd-link=0l8upv39raa)
+  
+### Customer Feedback
+Pending
+
+### Action Items
+- [ ] Collect customer feedback on SOC broadcasting functionality.
+- [ ] Investigate enhancements for SOC message encoding and broadcasting efficiency.
+- [ ] Develop additional features based on specific user requirements for CAN bus communication.
+
+
 # MVP 2: Sending and Receiving CAN Messages with Physical Feedback
 ### Release Date
 March 28, 2024
