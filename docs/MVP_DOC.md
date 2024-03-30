@@ -38,6 +38,7 @@ Ensure the CAN interface is correctly set up on your Raspberry Pi and the `pytho
 ### References
 - [Python-CAN Documentation](https://python-can.readthedocs.io/en/stable/)
 - [2-1/16" EV Battery Level / SOC Gauge 0-100% (w/ warning) (AEM)](https://speedhut.com/gauge-applications/2-1-16-ev-battery-level-soc-gauge-0-100-w-warning-aem/?dd-link=0l8upv39raa)
+- [EV_Gauge_Instructions - it has the CAN Message Format](https://github.com/aabdelghani/EVProCANBridge/blob/main/docs/2-116%20EV%20Battery%20Level%20%20SOC%20Gauge%200-100%20(w%20warning)%20(AEM).pdf) 
   
 ### Customer Feedback
 Pending
