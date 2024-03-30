@@ -1,0 +1,3 @@
+[submodule "can_decoder"]
+	path = can_decoder
+	url = https://github.com/CSS-Electronics/can_decoder
