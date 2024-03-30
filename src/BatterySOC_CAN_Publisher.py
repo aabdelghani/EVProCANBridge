@@ -37,10 +37,10 @@ def cycle_battery_level(config):
             while True:
                 for percentage in range(start_percentage, end_percentage + 1):
                     send_can_message(bus, can_id, percentage, message_details)
-                    time.sleep(0.1)  # Adjust as needed
+                    time.sleep(1)  # Adjust as needed
 
                 # Wait before restarting the cycle, if needed
-                time.sleep(1)
+                time.sleep(7)
     except KeyboardInterrupt:
         print("\nExecution stopped by user.")
 

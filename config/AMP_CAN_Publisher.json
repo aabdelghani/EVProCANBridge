@@ -1,0 +1,18 @@
+
+{
+  "can_id_hex": "0X2F0A202",
+  "message_details": {
+    "start_bit": 23,
+    "bit_length": 16,
+    "scaling": 0.1,
+    "offset": 0,
+    "type": "Signed",
+    "units": "Amps"
+  },
+  "baud_rate": 500000,
+  "can_channel": "can1",
+  "amperage_range": {
+    "start": -200,
+    "end": 1200
+  }
+}

@@ -9,7 +9,7 @@
     "units": "%"
   },
   "baud_rate": 500000,
-  "can_channel": "can0",
+  "can_channel": "can1",
   "battery_percentage_range": {
     "start": 0,
     "end": 100

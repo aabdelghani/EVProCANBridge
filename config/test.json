@@ -1,0 +1,51 @@
+{
+  "can_channel": "can0",
+  "baud_rate": 500000,
+  "messages": {
+    "Battery Level": {
+      "can_id_hex": "0X2F0A202",
+      "start_bit": 15,
+      "bit_length": 8,
+      "scaling": 1,
+      "offset": 0,
+      "type": "Unsigned",
+      "units": "%"
+    },
+    "Amp": {
+      "can_id_hex": "0X2F0A202",
+      "start_bit": 23,
+      "bit_length": 16,
+      "scaling": 0.1,
+      "offset": 0,
+      "type": "Signed",
+      "units": "Amps"
+    },
+    "Speedometer": {
+      "can_id_hex": "0X2F0A001",
+      "start_bit": 63,
+      "bit_length": 8,
+      "scaling": 1,
+      "offset": 0,
+      "type": "Unsigned",
+      "units": "MPH"
+    },
+    "Motor/Inverter Temp": {
+      "can_id_hex": "0X2F0A005",
+      "start_bit": 31,
+      "bit_length": 8,
+      "scaling": 1,
+      "offset": 0,
+      "type": "Unsigned",
+      "units": "Celsius"
+    },
+    "12 Volt Batt.": {
+      "can_id_hex": "0X2F0A001",
+      "start_bit": 47,
+      "bit_length": 8,
+      "scaling": 0.1,
+      "offset": 0,
+      "type": "Unsigned",
+      "units": "Volts"
+    }
+  }
+}
