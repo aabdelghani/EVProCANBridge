@@ -12,7 +12,7 @@
   "baud_rate": 500000,
   "can_channel": "can1",
   "amperage_range": {
-    "start": -200,
-    "end": 1200
+    "start": -20,
+    "end": 120
   }
 }
