@@ -10,10 +10,24 @@ def load_config():
 
 def encode_amperage(amps, message_details):
     data_bytes = [0x00] * 8
-    # Adjust the amperage according to the start bit and scaling
-    scaled_value = int((amps - message_details["offset"]) * message_details["scaling"])
-    data_bytes[message_details["start_bit"] // 8] = scaled_value & 0xFF
-    data_bytes[(message_details["start_bit"] // 8) + 1] = (scaled_value >> 8) & 0xFF
+    byte_index = message_details["start_bit"] // 8
+    bit_position = message_details["start_bit"] % 8
+
+    raw_value = int((amps - message_details["offset"]) / message_details["scaling"])
+    
+    # Handling signed values for negative amperage
+    if message_details["type"] == 'Signed' and raw_value < 0:
+        raw_value = (1 << message_details["bit_length"]) + raw_value
+
+    low_byte = raw_value & 0xFF
+    high_byte = (raw_value >> 8) & 0xFF
+
+    data_bytes[byte_index] |= (low_byte << bit_position) & 0xFF
+    data_bytes[byte_index + 1] |= (high_byte >> (8 - bit_position)) & 0xFF
+
+    if bit_position > 0:
+        data_bytes[byte_index + 2] |= (high_byte << bit_position) & 0xFF
+
     return bytes(data_bytes)
 
 
