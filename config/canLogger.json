@@ -1,0 +1,16 @@
+{
+  "default_format": "csv",
+  "default_can_interface": "can0",
+  "__comment": "This section is for documentation purposes only and should be ignored by the application.",
+  "_documentation": {
+    "default_format": "Specifies the default logging format. Available options: asc, blf, csv, log, trc.",
+    "default_can_interface": "Specifies the default CAN interface channel. Usually can0 or can1."
+  },
+  "_format_descriptions": {
+    "asc": "ASC (ASCII) format, suitable for human-readable logs and easy post-processing.",
+    "blf": "BLF (Binary Logging Format), compact binary format for efficient storage, often used in Vector tools.",
+    "csv": "CSV (Comma-Separated Values), versatile and widely supported format for data exchange and analysis.",
+    "log": "LOG, a textual logging format used primarily within the Linux can-utils suite.",
+    "trc": "TRC, Trace format, typically used with PEAK-System tools for detailed analysis."
+  }
+}
