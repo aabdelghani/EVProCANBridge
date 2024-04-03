@@ -41,12 +41,12 @@ Ensure the CAN interface is correctly set up on your Raspberry Pi and the `pytho
 - [EV_Gauge_Instructions - it has the CAN Message Format](https://github.com/aabdelghani/EVProCANBridge/blob/main/docs/2-116%20EV%20Battery%20Level%20%20SOC%20Gauge%200-100%20(w%20warning)%20(AEM).pdf) 
   
 ### Customer Feedback
-Pending
+- The Battery level Gauge cluster working perfectly based on the script 'src/BatterySOC_CAN_Publisher.py' that utilized can1 to send the battery percentage from 0 to 100. with the needed config file
 
 ### Action Items
-- [ ] Collect customer feedback on SOC broadcasting functionality.
-- [ ] Investigate enhancements for SOC message encoding and broadcasting efficiency.
-- [ ] Develop additional features based on specific user requirements for CAN bus communication.
+- [x] Collect customer feedback on SOC broadcasting functionality.
+- [x] Investigate enhancements for SOC message encoding and broadcasting efficiency.
+- [x] Develop the same script but make it work with the AMP Gauge 
 
 
 # MVP 2: Sending and Receiving CAN Messages with Physical Feedback
