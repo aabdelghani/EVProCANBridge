@@ -1,4 +1,58 @@
 # MVP Documentation
+## MVP 4: Amperage and State of Charge (SOC) Broadcasting over CAN Bus
+
+### Release Date
+April 4, 2024
+
+### Objectives
+1. Make AMP Gauge work fine first, test, validate the code
+2. Add AMP to SOC Gauges, test, validate the code 
+3. Add level of configurability. `CANBus_Amp_and_BatteryLevel_Publisher.json` config file that you can configure both.
+4. After finishing the above steps, we can add the Gauges in your cluster, one by one to our previously developed code.
+5. Then we can make generic code to support all Gauges using the config file.
+
+### Achievements
+- **Dynamic Configuration:** Introduced a JSON-based configuration system allowing for easy adjustment of CAN parameters (ID, bitrate, AMP, and SOC range) without modifying the script code.
+- **SOC and AMP Broadcasting Script:** Developed and successfully tested a Python script (`CANBus_Amp_and_BatteryLevel_Publisher.py`) that cycles through AMP values from -200 to 1201 and SOC values from 0% to 100%, broadcasting each value over the CAN bus.
+- **Graceful Shutdown:** Enhanced the script with a mechanism for graceful shutdown upon receiving a keyboard interrupt (CTRL+C), ensuring clean script termination.
+- All objectives were achieved, except for adding the Gauges in your cluster due to the unavailability of other gauges.
+
+### Technical Details and References
+- The AMP and SOC values are encoded and sent using specific CAN message structures, dictated by the `config/CANBus_Amp_and_BatteryLevel_Publisher.json` configuration file. This includes the start bit, bit length, scaling, and CAN ID in HEX format.
+- Utilized the `python-can` library for CAN interface interaction, demonstrating a programmable method for sending CAN messages based on dynamic AMP and SOC values.
+- Script execution and interruption are handled cleanly, providing feedback to the user upon shutdown.
+
+### Configuration File Breakdown
+The configuration file (`CANBus_Amp_and_BatteryLevel_Publisher.json`) includes several key parameters:
+- `can_id_hex`: The CAN ID in hexadecimal format.
+- `message_details`: Object specifying message encoding details such as start bit, bit length, scaling, and offset for both AMP and SOC values.
+- `baud_rate`: The baud rate for CAN communication.
+- `can_channel`: Specifies the CAN interface channel (e.g., `can0`).
+- `amps_value_range`: Defines the range for cycling AMP values.
+- `battery_level_range`: Defines the range for cycling SOC values.
+
+### Script Usage
+To run the script, navigate to the script's directory and execute:
+```bash
+python3 CANBus_Amp_and_BatteryLevel_Publisher.py
+```
+Ensure the CAN interface is correctly set up on your Raspberry Pi and the `python-can` library is installed.
+
+### References
+- [2-1/16" EV Amp Gauge -200 to 1200 (AEM)](https://speedhut.com/gauge-applications/2-1-16-ev-amp-gauge-200-to-1200-aem/?dd-link=0l8upv39raa)
+- [Python-CAN Documentation](https://python-can.readthedocs.io/en/stable/)
+- [2-1/16" EV Battery Level / SOC Gauge 0-100% (w/ warning) (AEM)](https://speedhut.com/gauge-applications/2-1-16-ev-battery-level-soc-gauge-0-100-w-warning-aem/?dd-link=0l8upv39raa)
+- [EV_Gauge_Instructions - it has the CAN Message Format](https://github.com/aabdelghani/EVProCANBridge/blob/main/docs/2-116%20EV%20Battery%20Level%20%20SOC%20Gauge%200-100%20(w%20warning)%20(AEM).pdf)
+  
+### Customer Feedback
+- The Battery level and AMP Gauge cluster are working perfectly based on the script `CANBus_Amp_and_BatteryLevel_Publisher.py` that utilized `can1` to send the battery percentage and AMP values with the needed config file.
+
+### Action Items
+- [x] Collect customer feedback on SOC and AMP broadcasting functionality.
+- [x] Investigate enhancements for SOC and AMP message encoding and broadcasting efficiency.
+- [x] Develop a generic script to support all gauges using the config file.
+- [ ] Add the Gauges in your cluster one by one to our previously developed code (Pending due to unavailability of other gauges).
+
 
 ## MVP 3: State of Charge (SOC) Broadcasting over CAN Bus
 
