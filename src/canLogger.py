@@ -11,7 +11,7 @@ def load_config():
 
 def setup_logging(bus, log_format):
     # Define all formats we want to log in
-    log_formats = ['asc', 'blf', 'csv', 'log', 'trc']  # Extendable for more formats
+    log_formats = ['asc', 'db', 'csv', 'log', 'trc']  # Extendable for more formats
     log_directory = "../log"
 
     # Ensure the log directory exists
@@ -24,8 +24,8 @@ def setup_logging(bus, log_format):
     filename = os.path.join(log_directory, f'can_messages.{log_format}')
     if log_format == 'asc':
         listener = can.ASCWriter(filename)
-    elif log_format == 'blf':
-        listener = can.BLFWriter(filename)
+    elif log_format == 'db':
+        listener = can.SqliteWriter(filename)
     elif log_format == 'csv':
         listener = can.CSVWriter(filename)
     elif log_format == 'log':
