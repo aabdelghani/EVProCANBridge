@@ -11,7 +11,7 @@ try:
     battery_level = 0
 
     while True:  # Make the entire process repeat indefinitely
-        for amps_value in range(-200, 1202):  # From -200 to 1201 Amps
+        for amps_value in range(-200, 1201):  # From -200 to 1201 Amps
             raw_value = int(amps_value / 0.1)  # Apply scaling for Amps
 
             # Prepare the data bytes for both Amps and Battery Level
