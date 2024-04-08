@@ -1,4 +1,55 @@
 # MVP Documentation
+
+## MVP 5: AutoStart for canLogger.py and CAN Frame Processing
+
+### Release Date
+April 8, 2024
+
+### Objectives
+1. Implement an auto-start mechanism for `canLogger.py` to ensure it runs at boot.
+2. Develop a script (`setup_can_logger_autostart.sh`) to automate the insertion of `canLogger.py` execution into `rc.local`.
+3. Create a script (`decode_can_frames_from_csv.py`) to convert raw CAN frame logs into a more comprehensible format (`human_readable_can_log.csv`).
+4. Configure CAN interfaces automatically at boot using `can_setup.service`.
+
+### Achievements
+- **AutoStart Implementation:** Successfully configured `canLogger.py` to start automatically at system boot, ensuring continuous CAN frame logging.
+- **AutoStart Setup Script:** Developed `setup_can_logger_autostart.sh`, which automates the process of adding `canLogger.py` to `rc.local` for execution at boot.
+- **CAN Frame Decoding Script:** Introduced `decode_can_frames_from_csv.py`, which processes `csv_messages.csv` to generate `human_readable_can_log.csv`, improving readability and analysis.
+- **CAN Interface Configuration Service:** Established `can_setup.service`, a systemd service designed to configure CAN interfaces (`can0` and `can1`) with specified settings at system boot.
+
+### Technical Details and References
+- **AutoStart Script:** `setup_can_logger_autostart.sh` adds a startup command to `/etc/rc.local`, leveraging the script's current directory to dynamically resolve paths.
+- **Decoding Script Usage:** To run, navigate to the script directory and execute:
+  ```bash
+  python3 src/decode_can_frames_from_csv.py
+  ```
+  Ensure the Python environment is correctly set up and necessary libraries are installed.
+- **CAN Setup Service:** `can_setup.service` uses systemd to ensure CAN interfaces are correctly configured at every boot, enhancing reliability and ease of use.
+
+### Configuration and Usage
+- The `can_setup.service` file is placed in `/etc/systemd/system/` and enabled via:
+  ```bash
+  sudo systemctl enable can_setup.service
+  ```
+- The `setup_can_logger_autostart.sh` script is executed once to configure auto-start settings:
+  ```bash
+  bash setup_can_logger_autostart.sh
+  ```
+- The `decode_can_frames_from_csv.py` script can be executed as needed to generate human-readable CAN logs.
+
+### References
+- Systemd Documentation: [https://www.freedesktop.org/wiki/Software/systemd/](https://www.freedesktop.org/wiki/Software/systemd/)
+- Python-CAN Documentation: [https://python-can.readthedocs.io/en/stable/](https://python-can.readthedocs.io/en/stable/)
+
+### Customer Feedback
+- Pending ...
+
+### Action Items
+- [x] Validate the effectiveness and reliability of the `can_setup.service`.
+- [x] Ensure the auto-start mechanism via `rc.local` is robust across different system reboots.
+- [ ] Gather customer feedback on the comprehensibility of the `human_readable_can_log.csv`.
+- [ ] Explore further enhancements to CAN frame logging and processing capabilities.
+
 ## MVP 4: Amperage and State of Charge (SOC) Broadcasting over CAN Bus
 
 ### Release Date
