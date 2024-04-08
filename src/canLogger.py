@@ -2,7 +2,28 @@ import can
 import json
 import os
 import subprocess  # Import subprocess module
+import threading
 
+def input_with_timeout(prompt, timeout, default):
+    """
+    Display a prompt and wait for input with a timeout.
+    Returns the user input or a default value if the timeout is exceeded.
+    """
+    def input_thread(queue):
+        queue.append(input(prompt))
+
+    user_input = []
+    thread = threading.Thread(target=input_thread, args=(user_input,))
+    thread.daemon = True  # Set the thread as a daemon
+    thread.start()
+    thread.join(timeout)
+
+    if user_input:
+        return user_input[0]
+    else:
+        print(f"Timeout reached. Using default value: {default}")
+        return default
+        
 def configure_can_interface(interface):
     # Command templates for setting up the CAN interface
     setup_commands = [
@@ -67,8 +88,9 @@ def main():
     default_format = config.get("default_format", "csv")
     default_can_interface = config.get("default_can_interface", "can0")
 
-    user_format = input(f"Enter the desired log format [{default_format}]: ") or default_format
-    user_can_interface = input(f"Select CAN interface (can0/can1) [{default_can_interface}]: ") or default_can_interface
+    # Using the modified input function with timeout
+    user_format = input_with_timeout(f"Enter the desired log format [{default_format}]: ", .2, default_format)
+    user_can_interface = input_with_timeout(f"Select CAN interface (can0/can1) [{default_can_interface}]: ", .2, default_can_interface)
 
     configure_can_interface(user_can_interface)
     
