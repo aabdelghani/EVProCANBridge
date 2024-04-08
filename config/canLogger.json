@@ -1,6 +1,6 @@
 {
   "default_format": "csv",
-  "default_can_interface": "can0",
+  "default_can_interface": "can1",
   "__comment": "This section is for documentation purposes only and should be ignored by the application.",
   "_documentation": {
     "default_format": "Specifies the default logging format. Available options: asc, blf, csv, log, trc.",
