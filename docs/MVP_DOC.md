@@ -1,6 +1,6 @@
-# MVP Documentation
+# Milestones Documentation
 
-## MVP 5: AutoStart for canLogger.py and CAN Frame Processing
+## Milestone 5: AutoStart for canLogger.py and CAN Frame Processing
 
 ### Release Date
 April 8, 2024
@@ -50,7 +50,7 @@ April 8, 2024
 - [ ] Gather customer feedback on the comprehensibility of the `human_readable_can_log.csv`.
 - [ ] Explore further enhancements to CAN frame logging and processing capabilities.
 
-## MVP 4: Amperage and State of Charge (SOC) Broadcasting over CAN Bus
+## Milestone 4: Amperage and State of Charge (SOC) Broadcasting over CAN Bus
 
 ### Release Date
 April 4, 2024
@@ -105,7 +105,7 @@ Ensure the CAN interface is correctly set up on your Raspberry Pi and the `pytho
 - [ ] Add the Gauges in your cluster one by one to our previously developed code (Pending due to unavailability of other gauges).
 
 
-## MVP 3: State of Charge (SOC) Broadcasting over CAN Bus
+## Milestone 3: State of Charge (SOC) Broadcasting over CAN Bus
 
 ### Release Date
 March 30, 2024
@@ -154,12 +154,12 @@ Ensure the CAN interface is correctly set up on your Raspberry Pi and the `pytho
 - [x] Develop the same script but make it work with the AMP Gauge 
 
 
-# MVP 2: Sending and Receiving CAN Messages with Physical Feedback
+# Milestone 2: Sending and Receiving CAN Messages with Physical Feedback
 ### Release Date
 March 28, 2024
 
 ## Overview
-Building on the success of the initial MVP, which established reliable CAN communication on a Raspberry Pi, the next milestone (MVP2) aims to demonstrate a practical application of CAN bus communication by creating and transmitting a specific CAN message from one interface and receiving it on another. Upon successful reception, a connected LED will be illuminated as a physical indicator of success.
+Building on the success of the initial Milestone, which established reliable CAN communication on a Raspberry Pi, the next milestone (Milestone2) aims to demonstrate a practical application of CAN bus communication by creating and transmitting a specific CAN message from one interface and receiving it on another. Upon successful reception, a connected LED will be illuminated as a physical indicator of success.
 
 ## Objectives
 - Create a specific CAN message to be sent over the CAN bus.
@@ -178,7 +178,7 @@ Building on the success of the initial MVP, which established reliable CAN commu
 The scripts developed as part of our project have specific functionalities tied to the Raspberry Pi's GPIO pins, particularly GPIO pin 17. One of the key scripts toggles the state of GPIO pin 17 to demonstrate physical interaction with the hardware. This is used as an indication of successful CAN message reception.
 
 
-## How to Run the Scripts for MVP2
+## How to Run the Scripts for Milestone2
 
 ### Prerequisites
 Before running the scripts, ensure you have the following prerequisites installed on your Raspberry Pi:
@@ -248,7 +248,7 @@ Pending
     - Wiring instructions for connecting the LED to the Raspberry Pi.
     - A troubleshooting guide covering common issues and their resolutions.
 
-## MVP 1: Running CAN Bus Communication Alongside Wireshark on Raspberry Pi
+## Milestone 1: Running CAN Bus Communication Alongside Wireshark on Raspberry Pi
 
 ### Release Date
 March 27, 2024
@@ -304,6 +304,6 @@ This configuration ensures that the `can0` interface is optimized for performanc
 Pending
 
 ### Action Items
-- [x] Gather customer feedback on the current MVP functionality and usability.
+- [x] Gather customer feedback on the current Milestone functionality and usability.
 - [x] Explore additional CAN bus analysis tools that can be integrated with the Raspberry Pi.
 - [ ] Consider developing a more user-friendly interface for setting up CAN bus communication and monitoring.
