@@ -1,5 +1,52 @@
 # Milestones Documentation
 
+## Milestone 6: Dual CAN Connection and Recording at Startup
+
+### Release Date
+May 10, 2024
+
+### Objectives
+1. Configure dual CAN connections to interface with both BMS (Battery Management System) and EVC (Electric Vehicle Controller) on separate channels (CAN0 and CAN1) at different speeds (250kbps and 500kbps respectively).
+2. Ensure both CAN interfaces begin logging immediately upon system startup.
+3. Implement and refine a script (`setup_dual_can_logger_autostart.sh`) to automate the configuration and startup logging for both CAN interfaces.
+4. Develop enhancements in `canLogger.py` to support simultaneous logging from both CAN interfaces with distinct configurations.
+
+### Achievements
+- **Dual CAN Configuration:** Successfully modified system settings to support BMS CAN on `CAN0` at 250kbps and EVC CAN on `CAN1` at 500kbps.
+- **Simultaneous Logging at Startup:** Achieved automatic initiation of CAN logging from both interfaces at system boot, ensuring comprehensive data capture from the start.
+- **AutoStart Configuration Script:** Created `setup_dual_can_logger_autostart.sh` that configures both CAN interfaces and ensures they are logged from on startup.
+- **Updated Logging Capabilities:** Updated `canLogger.py` to handle simultaneous data capture and logging from two different CAN interfaces at varying speeds.
+
+### Technical Details and References
+- **Configuration Script:** `setup_dual_can_logger_autostart.sh` sets up CAN0 and CAN1 with specified speeds and adds commands to `/etc/rc.local` for automatic execution at boot.
+- **Updated Logger Script:** Modifications in `canLogger.py` support differentiated logging processes for each CAN interface, accommodating the unique baud rates and data formats of BMS and EVC.
+- **System Configuration Files:** Both CAN interfaces are configured through changes in `/etc/network/interfaces` and the respective systemd service units are managed to ensure persistent settings across reboots.
+
+### Configuration and Usage
+- The `setup_dual_can_logger_autostart.sh` script configures and activates logging for both CAN interfaces:
+  ```bash
+  bash setup_dual_can_logger_autostart.sh
+  ```
+- Each interface’s settings and operation can be verified using:
+  ```bash
+  cat /proc/sys/net/can
+  ```
+- Ensure proper operation of updated `canLogger.py` to handle simultaneous input from both CAN interfaces.
+
+### References
+- Systemd Documentation: [https://www.freedesktop.org/wiki/Software/systemd/](https://www.freedesktop.org/wiki/Software/systemd/)
+- Network Configuration for Linux: [https://www.networkconfiguration.com/](https://www.networkconfiguration.com/)
+- Python-CAN Documentation: [https://python-can.readthedocs.io/en/stable/](https://python-can.readthedocs.io/en/stable/)
+
+### Customer Feedback
+- Pending ...
+
+### Action Items
+- [x] Test configuration stability for BMS and EVC CAN interfaces at their respective speeds.
+- [x] Confirm logging initiates reliably at system boot.
+- [ ] Collect and analyze customer feedback regarding the reliability and accuracy of the data logged.
+- [ ] Evaluate potential for integrating more advanced diagnostic features into the logging software.
+
 ## Milestone 5: AutoStart for canLogger.py and CAN Frame Processing
 
 ### Release Date
