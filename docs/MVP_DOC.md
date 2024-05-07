@@ -1,6 +1,6 @@
 # Milestones Documentation
 
-## Milestone 6: Dual CAN Connection and Recording at Startup
+## Milestone 5: Dual CAN Connection and Recording at Startup
 
 ### Release Date
 May 10, 2024
