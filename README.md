@@ -37,6 +37,14 @@ This document includes comprehensive details on the objectives, achievements, te
 
 This section will guide you through the setup process and how to start using EVProCANBridge in your projects.
 
+## Requirements 
+Hardware
+Raspberry Pi 4 
+2-Channel CAN-BUS FD Shield for Raspberry Pi
+Software 
+Raspian OS Legacy Desktop BullsEye 32-bit version
+Wire Shark
+
 ## General Configuration Rule for CAN Interfaces
 
 To ensure reliable communication and the correct setup of CAN interfaces (`can0` and `can1`) on the Raspberry Pi, it is recommended to follow a standard procedure for shutting down and then re-initializing these interfaces with specific settings. This process is crucial for resetting the state of the CAN interfaces and applying new configurations such as bitrate changes or after making adjustments to network settings.
@@ -98,6 +106,38 @@ The latest 2-Channel CAN FD Master Hat for RPi also includes an on-board RTC. To
     curl -O -L https://github.com/dresden-elektronik/raspbee2-rtc/archive/master.zip
     unzip master.zip
     ```
+3.1. **Raspberry Pi Kernel Header Issue**:
+
+## Problem Description
+
+This issue has been observed multiple times recently. The core of the problem is that the operating system (OS) is running a 32-bit user space, while the kernel is 64-bit. This is the default configuration for the Raspberry Pi 4 series when using the 32-bit version of the OS. The kernel headers available for the 32-bit system only include headers for the 32-bit kernels, not the 64-bit ones.
+
+## Solution
+
+### Switching to the 32-bit Kernel
+
+The simplest solution to this problem is to switch to the 32-bit kernel. This can be done by modifying the Raspberry Pi's configuration file.
+
+1. **Edit the Configuration File**: Open the `/boot/config.txt` file with superuser privileges. You can use `nano` or any other text editor:
+   ```bash
+   sudo nano /boot/config.txt
+   ```
+
+2. **Add the Kernel Setting**: At the end of the file, add the following line:
+   ```
+   arm_64bit=0
+   ```
+
+3. **Reboot the Raspberry Pi**: Save the changes and exit the text editor. Reboot your Raspberry Pi to apply the changes:
+   ```bash
+   sudo reboot
+   ```
+
+After rebooting, your Raspberry Pi will use the `v7l+` kernel, for which you have the appropriate headers.
+
+### Building for the 64-bit Kernel on a 32-bit System
+
+While it is possible to build for the 64-bit kernel on a 32-bit system, this process is complex and not straightforward. It typically involves cross-compiling and managing multiple sets of kernel headers, which is beyond the scope of this README.
 
 4. **Compile the RTC Kernel Module**:
     ```bash
