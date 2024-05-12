@@ -38,12 +38,12 @@ This document includes comprehensive details on the objectives, achievements, te
 This section will guide you through the setup process and how to start using EVProCANBridge in your projects.
 
 ## Requirements 
-Hardware
-Raspberry Pi 4 
-2-Channel CAN-BUS FD Shield for Raspberry Pi
-Software 
-Raspian OS Legacy Desktop BullsEye 32-bit version
-Wire Shark
+- Hardware
+1. Raspberry Pi 4 
+2. 2-Channel CAN-BUS FD Shield for Raspberry Pi
+- Software 
+1. Raspian OS Legacy Desktop BullsEye 32-bit version
+2. Wire Shark
 
 ## General Configuration Rule for CAN Interfaces
 
