@@ -90,7 +90,7 @@ The latest 2-Channel CAN FD Master Hat for RPi also includes an on-board RTC. To
 
 2. **Install Dependencies**:
     ```bash
-    sudo apt install i2c-tools build-essential raspberrypi-kernel-headers
+    sudo apt-get install raspberrypi-kernel-headers
     ```
 
 3. **Download the Driver**:
