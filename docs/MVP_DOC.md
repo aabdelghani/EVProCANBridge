@@ -1,6 +1,54 @@
 # Milestones Documentation
 
-## Milestone 5: Dual CAN Connection and Recording at Startup
+## Milestone 7: Enhanced CAN Data Decoding and Reliable Autostart Integration
+
+### Release Date
+May 12, 2024
+
+### Objectives
+1. Enhance `decode_soc_from_can.py` to reliably decode and log state of charge (SoC) and current data from CAN0 and CAN1, accommodating dual CAN interface requirements.
+2. Refine the autostart mechanism to ensure both CAN interfaces (`can0` and `can1`) are fully operational with `decode_soc_from_can.py` at system startup.
+3. Implement robust error handling in `decode_soc_from_can.py` to manage potential disruptions in CAN data flow and environment variations.
+4. Document the process and develop comprehensive troubleshooting guidelines for setting up and maintaining the dual CAN connection and logging system.
+
+### Achievements
+- **Enhanced CAN Data Decoding:** Updated `decode_soc_from_can.py` to handle simultaneous data capture from both `can0` and `can1`, ensuring accurate decoding of state of charge and current for BMS and EVC.
+- **Reliable Autostart Setup:** Improved the autostart mechanism to ensure `decode_soc_from_can.py` initializes correctly with both CAN interfaces at different speeds (250kbps and 500kbps) and begins logging immediately upon system boot.
+- **Robust Error Handling:** Incorporated error handling in `decode_soc_from_can.py` to manage missing data, ensure resilience against interface initialization delays, and recover gracefully from interruptions.
+- **Comprehensive Documentation and Troubleshooting:** Compiled detailed documentation and troubleshooting guidelines to assist users in setting up, verifying, and maintaining the dual CAN logging system.
+
+### Technical Details and References
+- **Enhanced Script Capabilities:** `decode_soc_from_can.py` now includes logic to process data from two CAN interfaces with different configurations and logs the extracted data in a unified format.
+- **Autostart Configuration and Testing:** Validated the effectiveness of the autostart setup through rigorous testing across multiple system reboots and different hardware scenarios.
+- **Error Handling Enhancements:** Introduced checks and recovery mechanisms in `decode_soc_from_can.py` to handle temporary data flow interruptions and CAN interface initialization issues.
+- **Documentation and Guidelines:** Provided a step-by-step setup guide, usage instructions, and troubleshooting tips for the dual CAN interface logging system.
+
+### Configuration and Usage
+- Run the enhanced `decode_soc_from_can.py` to start logging from both interfaces:
+  ```bash
+  bash /home/vov003/Desktop/EVProCANBridge/launcher.sh
+  ```
+- Verify the operation and output using:
+  ```bash
+  cat /home/vov003/logs/cronlog
+  ```
+- Consult the documentation for troubleshooting and advanced configuration options.
+
+### References
+- Systemd Documentation: [https://www.freedesktop.org/wiki/Software/systemd/](https://www.freedesktop.org/wiki/Software/systemd/)
+- Python-CAN Documentation: [https://python-can.readthedocs.io/en/stable/](https://python-can.readthedocs.io/en/stable/)
+
+### Customer Feedback
+- [ ] it's taking too long to load 29 Seconds almost
+
+### Action Items
+- [x] Ensure robust and accurate decoding of CAN data for SoC and current from both CAN interfaces.
+- [x] Confirm the autostart mechanism's reliability for initializing and logging from both CAN interfaces.
+- [x] Collect and analyze customer feedback on the ease of setup and reliability of the data logging.
+- [ ] Work on another approach to make the script run at earliest startup once rpi is on (Milestone 8 to be) ...
+
+
+## Milestone 6: Dual CAN Connection and Recording at Startup
 
 ### Release Date
 May 10, 2024
@@ -46,6 +94,7 @@ May 10, 2024
 - [x] Confirm logging initiates reliably at system boot.
 - [ ] Collect and analyze customer feedback regarding the reliability and accuracy of the data logged.
 - [ ] Evaluate potential for integrating more advanced diagnostic features into the logging software.
+
 
 ## Milestone 5: AutoStart for canLogger.py and CAN Frame Processing
 
